@@ -498,6 +498,7 @@ def get_args(args=None) -> ScriptArguments:
     defaults = ScriptArguments(
         suffix="",
         environment=EnvironmentArguments(
+            bid=None,
             image_name="sweagent/swe-agent:latest",
             data_path="princeton-nlp/SWE-bench_Lite",
             split="dev",
@@ -546,4 +547,10 @@ def main(args: ScriptArguments):
 
 
 if __name__ == "__main__":
-    main(get_args())
+    import os
+    
+    # little hack to pass the bid to the custom functions the LLM is calling
+    args = get_args()
+    os.environ["BID"] = args.environment.bid
+
+    main(args)

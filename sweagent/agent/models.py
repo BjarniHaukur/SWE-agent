@@ -235,6 +235,11 @@ class OpenAIModel(BaseModel):
             "cost_per_input_token": 1.5e-07,
             "cost_per_output_token": 6e-07,
         },
+        "chatgpt-4o-latest": {
+            "max_context": 128_000,
+            "cost_per_input_token": 5e-06,
+            "cost_per_output_token": 15e-06,
+        },
         "o1-preview-2024-09-12": {
             "max_context": 128_000,
             "cost_per_input_token": 15e-06,
@@ -256,6 +261,7 @@ class OpenAIModel(BaseModel):
         "gpt3-0125": "gpt-3.5-turbo-0125",
         "gpt4-turbo": "gpt-4-turbo-2024-04-09",
         "gpt4o": "gpt-4o-2024-05-13",
+        "chatgpt-4o-latest": "chatgpt-4o-latest",
         "gpt-4o-mini": "gpt-4o-mini-2024-07-18",
         "gpt4omini": "gpt-4o-mini-2024-07-18",
         "o1": "o1-preview-2024-09-12",

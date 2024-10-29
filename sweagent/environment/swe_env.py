@@ -73,6 +73,8 @@ class EnvironmentArguments(FrozenSerializable):
     # (`json`, `jsonl`) or directory. To run over single issue: github issue url or path to markdown file
     # with problem statement or problem statement as text prefixed with `text://`.
     data_path: str
+    # The gitbug-java bug id currently being processed
+    bid: str | None = None
     # Name of the docker image to use for the environment. Defaults to sweagent/swe-agent:latest
     image_name: str = "sweagent/swe-agent:latest"
     # When running over SWE-bench issues: Specify the split to use.
