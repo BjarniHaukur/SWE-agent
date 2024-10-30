@@ -246,7 +246,7 @@ class SaveApplyPatchHook(MainHook):
         assert patch_file.exists()
         # The resolve() is important, because we're gonna run the cmd
         # somewhere else
-        cmd = ["git", "apply", str(patch_file.resolve())]
+        cmd = ["git", "apply", str(patch_file.resolve()), "--ignore-whitespace", "--ignore-space-change"]  # CHANGE: added these two flags, could cause some issues but okay for MVP
         try:
             subprocess.run(cmd, cwd=local_dir, check=True)
         except subprocess.CalledProcessError as e:
@@ -498,13 +498,13 @@ def get_args(args=None) -> ScriptArguments:
     defaults = ScriptArguments(
         suffix="",
         environment=EnvironmentArguments(
-            bid=None,
             image_name="sweagent/swe-agent:latest",
             data_path="princeton-nlp/SWE-bench_Lite",
             split="dev",
             verbose=True,
             install_environment=True,
             cache_task_images=False,
+            bid=None,  # HACKY, just a way to pass the bid to the custom functions the LLM is calling
         ),
         skip_existing=True,
         agent=AgentArguments(

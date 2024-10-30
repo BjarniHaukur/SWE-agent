@@ -79,7 +79,6 @@ def initialize_repo(bid:str):
     subprocess.run(["git", "commit", "-m", "clean for SWE-agent"], cwd=REPO_DIR / bid)
 
 if __name__ == "__main__":
-
     import argparse
 
     parser = argparse.ArgumentParser(description='Run tests and generate issue files for gitbug-java bugs')
@@ -90,4 +89,3 @@ if __name__ == "__main__":
     initialize_issue(args.bid)
     initialize_repo(args.bid)
     run_sweagent(args.bid)
-    # checkout_repo(args.bid)
