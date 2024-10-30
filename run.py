@@ -504,7 +504,6 @@ def get_args(args=None) -> ScriptArguments:
             verbose=True,
             install_environment=True,
             cache_task_images=False,
-            bid=None,  # HACKY, just a way to pass the bid to the custom functions the LLM is calling
         ),
         skip_existing=True,
         agent=AgentArguments(
@@ -547,10 +546,4 @@ def main(args: ScriptArguments):
 
 
 if __name__ == "__main__":
-    import os
-    
-    # little hack to pass the bid to the custom functions the LLM is calling
-    args = get_args()
-    os.environ["BID"] = args.environment.bid
-
-    main(args)
+    main(get_args())
