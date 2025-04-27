@@ -260,3 +260,6 @@ aci = "aci"
 
 [tool.ruff.lint.isort]
 # required-imports = ["from __future__ import annotations"]
+
+[tool.setuptools.package-data]
+"sweagent" = ["config/**/*", "tools/**/*"]
