@@ -262,4 +262,4 @@ aci = "aci"
 # required-imports = ["from __future__ import annotations"]
 
 [tool.setuptools.package-data]
-"sweagent" = ["config/**/*", "tools/**/*"]
+"sweagent" = ["../config/**/*", "../tools/**/*"]
